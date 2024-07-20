@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+</html>
+<body background="oboi-krasivo.jpg">
+<p class="imya" id="username"><img src="52.png" height="22"> ▾Лимон Лошок</p>
+<div class="tray">
+<p id="statusDisplay">Статуса нет (В Сети ты крч)</p>
+<input placeholder="Статус твой" id="statusInput">
+<button id="setStatusButton">Изменить</button>
+</div>
+<hr class="razdel"></hr>
+<p class="xuyMENU">     <b><a href="nastroyki.html"></a></b>     <a href="zvonki_ot_debilov.html"></a></p>
+<input placeholder="Имя, Адрес, Телефон...">
+</div>
+<div class="chat-container">
+        <div class="chat-box" id="chatBox"></div>
+        <input type="text" id="messageInput" placeholder="Введите сообщение..."/>
+
+        <button id="sendBtn">Отправить</button>
+    </div>
+<div class="contacts">
+<p><b class="contacty">Контакты</b>  <b class="posledniye">Последние</b></p>
+<p class="mozhno-videlit">ser19k (r.i.p)</p>
+<p class="mozhno-videlit">Никита Назаров</p>
+<p class="mozhno-videlit">Лимон сосал</p>
+<p class="mozhno-videlit">copilot тупой ии</p>
+</div>
+</body>
+</html>
+
+<style>
+.imya{
+font-family:'Tahoma';
+text-decoration:bold;
+font-size:20px;
+}
+
+.razdel{
+width:100%;
+text-align:left;
+}
+
+body{
+font-family:'Segoe UI';
+}
+
+.cronix{
+background-color:blue;
+color:white;
+width:120px;
+}
+
+.chat{
+font-family:'Tahoma';
+text-align:left;
+margin-left:120px;
+}
+
+.xuyMENU{
+	font-family:'Segoe MDL2 Assets';
+	font-size:24px;
+}
+
+.chat-container{
+margin-left:256px;
+margin-top:-50px;
+font-family:'Segoe UI';
+color:black;
+font-size:16px;
+position:fixed;
+}
+
+.contacts{
+font-family:'Tahoma';
+border:1px solid black;
+width:181px;
+height:256px;
+text-align:center;
+margin-top:12px;
+position:fixed;
+background-color:white;
+}
+
+.selected-koshaks{
+color:white;
+background-color:#009EDC;
+}
+
+.posledniye{
+transition:.3s all;
+}
+
+.posledniye:hover{
+color:#009EDC;
+}
+
+.contacty{
+transition:.3s all;
+}
+
+.contacty:hover{
+color:#009EDC;
+}
+
+.mozhno-videlit{
+transition:.3s all;
+}
+
+.mozhno-videlit:hover{
+background-color:#009EDC;
+color:white;
+}
+
+.mozhno-videlit:active{
+background-color:#009EDC;
+color:white;
+}
+
+.inputStatusa{
+margin-top:-50px;
+}
+
+.tray{
+margin-top:-15px;
+}
+</style>
+
+<script>
+document.getElementById('sendBtn').addEventListener('click', function() {
+    const username = "Лимон Лошок"; // Фиксированный ник пользователя
+    const messageInput = document.getElementById('messageInput');
+    const message = messageInput.value.trim();
+
+    if (message) {
+        const chatBox = document.getElementById('chatBox');
+        const messageDiv = document.createElement('div');
+        messageDiv.classList.add('chat-message');
+        messageDiv.innerHTML = `<strong>${username}:</strong> ${message}`; // Отображаем ник с жирным шрифтом
+        chatBox.appendChild(messageDiv);
+        messageInput.value = ''; // Очистить поле ввода
+        chatBox.scrollTop = chatBox.scrollHeight; // Прокрутка вниз
+	var IM = new Audio('IM.mp3');
+	IM.play()
+    } else {
+        alert('Пожалуйста, введите сообщение!');
+    }
+});
+
+// Добавить поддержку нажатия Enter для отправки сообщения
+document.getElementById('messageInput').addEventListener('keypress', function(event) {
+    if (event.key === 'Enter') {
+        document.getElementById('sendBtn').click();
+    }
+});
+
+document.getElementById('setStatusButton').addEventListener('click', function() {
+    const statusInput = document.getElementById('statusInput');
+    const statusDisplay = document.getElementById('statusDisplay');
+
+    // Установить новый статус
+    const newStatus = statusInput.value;
+
+    if (newStatus) {
+        statusDisplay.textContent = newStatus; // Обновить отображаемый статус
+        statusInput.value = ''; // Очистить поле ввода
+    } else {
+        alert('Пожалуйста, введите статус'); // Сообщение об ошибке
+    }
+});
+</script>

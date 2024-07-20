@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<title>CSkype - Настройки</title>
+<body>
+<h1>Настройки</h1>
+<input type="checkbox" id="test"><label for="test">Включить Тему (Красива картинка)</label>
+<br></br>
+<input type="checkbox" id="devmode"><label for="devmode">Режим для разработчиков (Опасен для пользователей обычных!!)</label>
+<br></br>
+<button id="confirm">Подтвердить</button>
+</body>
+<a href="clientui.html">Назад</a>
+</html>
+
+<style>
+body{
+font-family:'VK Sans Display Regular';
+}
+
+button
+background-color:lightgray;
+font-size:44px;
+}
+</style>
+
+<script>
+document.getElementById('devmode').addEventListener('change', function() {
+    if (this.checked) {
+        // Создание элемента video
+        const video = document.createElement('video');
+        video.src = 'nosorogsret.mp4';  // Укажите путь к вашему файлу видео
+        video.controls = false;           // Добавляем элементы управления видео
+        video.autoplay = true;           // Автоматическое воспроизведение видео
+        document.body.appendChild(video); // Добавляем видео на страницу
+    }
+});
+
+document.getElementById('test').addEventListener('change', function() {
+    if (this.checked) {
+        // Изменение фона на картинку oboi-krasivo.jpg
+        document.body.style.backgroundImage = "url('oboi-krasivo.jpg')";
+    } else {
+        // Вернуть фон по умолчанию или другое изображение
+        document.body.style.backgroundImage = "url('default-background.jpg')";
+    }
+});
+</script>

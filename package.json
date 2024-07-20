@@ -1,0 +1,20 @@
+{
+  "name": "cskype",
+  "version": "6.2.0",
+  "description": "Skype 6",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [
+    "skype"
+  ],
+  "author": "RAZDOR Incorporated",
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "electron": "^31.2.1"
+  },
+  "dependencies": {
+    "electron-builder": "^24.13.3"
+  }
+}
